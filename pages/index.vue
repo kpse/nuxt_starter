@@ -1,13 +1,17 @@
 <template>
-  <h1>hello world</h1>
+  <div>
+    {{counter}}
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import {mapState} from 'vuex'
 
 export default {
-  components: {
-    Logo
+  computed: {
+    ...mapState({
+      counter: state => state.counter
+    })
   }
 }
 </script>
