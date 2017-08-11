@@ -1,5 +1,11 @@
 export const state = function () {
-  return {counter: 2}
+  return {
+    todos: [
+      {task: 'eat'},
+      {task: 'sleep'},
+      {task: 'code'}
+    ]
+  }
 }
 
 export const mutations = {
