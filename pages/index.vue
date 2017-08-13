@@ -19,8 +19,12 @@
 
   export default {
     async fetch ({store}) {
-      const res = await axios.get('https://todos-dygueqmoyj.now.sh/todos')
-      store.commit('init', res.data)
+      try {
+        const res = await axios.get('https://odos-dygueqmoyj.now.sh/todos')
+        store.commit('init', res.data)
+      } catch (e) {
+        store.commit('init', [])
+      }
     },
     computed: {
       ...mapState({
