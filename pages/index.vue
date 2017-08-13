@@ -18,12 +18,12 @@
   import axios from 'axios'
 
   export default {
-    async fetch ({store}) {
+    async fetch ({store, redirect, error}) {
       try {
         const res = await axios.get('https://odos-dygueqmoyj.now.sh/todos')
         store.commit('init', res.data)
       } catch (e) {
-        store.commit('init', [])
+        error({statusCode: 500, message: 'service side is down!'})
       }
     },
     computed: {
