@@ -23,7 +23,7 @@
         const res = await axios.get('https://odos-dygueqmoyj.now.sh/todos')
         store.commit('init', res.data)
       } catch (e) {
-        error({statusCode: 500, message: 'service side is down!'})
+        redirect('/error')
       }
     },
     computed: {
