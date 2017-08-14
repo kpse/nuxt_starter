@@ -20,7 +20,7 @@
   export default {
     async fetch ({store, redirect, error}) {
       try {
-        const res = await axios.get('https://odos-dygueqmoyj.now.sh/todos')
+        const res = await axios.get('https://vuejsonserver-hnvawoqava.now.sh/todos')
         store.commit('init', res.data)
       } catch (e) {
         redirect('/error')
