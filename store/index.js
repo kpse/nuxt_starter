@@ -15,6 +15,9 @@ export const mutations = {
   },
   remove (state, todo) {
     state.todos = state.todos.filter(t => t.id !== todo.id)
+  },
+  toggle (state, todo) {
+    state.todos = state.todos.map(t => t.id === todo.id ? todo : t)
   }
 }
 
@@ -27,5 +30,11 @@ export const actions = {
   async remove ({commit}, task) {
     await axios.delete(`https://vuejsonserver-hnvawoqava.now.sh/todos/${task.id}`)
     commit('remove', task)
+  },
+  async toggle ({commit}, task) {
+    const res = await axios.patch(`https://vuejsonserver-hnvawoqava.now.sh/todos/${task.id}`, {
+      complete: !task.complete
+    })
+    commit('toggle', res.data)
   }
 }
