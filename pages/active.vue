@@ -17,11 +17,6 @@
 
   export default {
     fetch: init,
-    data () {
-      return {
-        task: 'some task'
-      }
-    },
     computed: {
       ...mapState({
         todos: state => state.todos.filter(todo => !todo.complete)
