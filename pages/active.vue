@@ -4,7 +4,8 @@
       <h1 class="f4 bold center mw6">Active Todos</h1>
       <ul class="list pl0 ml0 mw6 ba b--light-silver br2">
         <li v-for="todo of todos" class="flex ph3 pv3 bb b--light-silver">
-          <span v-bind:class="{strike: todo.complete}" class="flex-auto">{{todo.id}}{{ todo.task }}</span>
+          <span class="flex-auto">{{todo.id}} .</span>
+          <span class="flex-auto">{{ todo.task }}</span>
         </li>
       </ul>
     </article>
